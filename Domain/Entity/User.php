@@ -48,6 +48,17 @@ final class User {
     {
         return $this->createdAt;
     }
+
+    public static function register(string $id, string $name, string $email, string $password): self
+    {
+        return new self(
+            new Id($id),
+            new Name($name),
+            new Email($email),
+            new Password($password),
+            new CreatedAt(new DateTimeImmutable())
+        );
+    }
 }
 
 ?>
